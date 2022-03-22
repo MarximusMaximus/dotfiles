@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+git init .
+cp "$HOME"/.gitignore-base .gitignore
+git add .gitignore
+touch LICENSE
+git add LICENSE
+touch README.md
+git add README.md
