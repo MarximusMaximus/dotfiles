@@ -87,14 +87,14 @@ MY_DIR=$(dirname -- "$(rreadlink "$0")")
 
 (
   cd "$HOME" || exit 1
-  ln -sf .env_vars_profile "${MY_DIR}"/.env_vars_profile
-  ln -sf .vimrc "${MY_DIR}"/.vimrc
-  ln -sf .zshrc "${MY_DIR}"/.zshrc
-  ln -sf .gitignore-base "${MY_DIR}"/.gitignore
+  ln -sf "${MY_DIR}"/.env_vars_profile .env_vars_profile || exit 1
+  ln -sf "${MY_DIR}"/.vimrc .vimrc || exit 1
+  ln -sf "${MY_DIR}"/.zshrc .zshrc || exit 1
+  ln -sf "${MY_DIR}"/.gitignore .gitignore-base || exit 1
 
   # TODO: insert missing lines
   if [ ! -f .gitconfig ]; then
-    cp "${MY_DIR}"/.gitconfig-base .gitconfig
+    cp "${MY_DIR}"/.gitconfig-base .gitconfig || exit 1
   fi
 
   exit 0
