@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+################################################################################
+#region ZSH default block
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/marximus/.oh-my-zsh"
 
@@ -74,7 +77,14 @@ plugins=(git-prompt)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+#endregion ZSH default block
+################################################################################
+
+################################################################################
+#region User configuration
+
+#-------------------------------------------------------------------------------
+#region Env Vars
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -91,6 +101,15 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+source $HOME/.env_vars_profile
+
+#endregion Env Vars
+#-------------------------------------------------------------------------------
+
+
+#-------------------------------------------------------------------------------
+#region Aliases
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -100,11 +119,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $HOME/.env_vars_profile
-
 alias ls="ls -aG"
 alias ll="ls -aGl"
 
+#endregion Aliases
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+#region conda
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -121,3 +143,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+conda activate
+
+#endregion conda
+#-------------------------------------------------------------------------------
+
+#endregion User configuration
+################################################################################
