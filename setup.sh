@@ -90,6 +90,7 @@ MY_DIR=$(dirname -- "$(rreadlink "$0")")
   ln -sf .env_vars_profile "${MY_DIR}"/.env_vars_profile
   ln -sf .vimrc "${MY_DIR}"/.vimrc
   ln -sf .zshrc "${MY_DIR}"/.zshrc
+  ln -sf .gitignore-base "${MY_DIR}"/.gitignore
 
   # TODO: insert missing lines
   if [ ! -f .gitconfig ]; then
