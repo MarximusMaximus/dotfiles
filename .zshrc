@@ -75,7 +75,7 @@ ZSH_THEME="macos-theme"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git-prompt)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH"/oh-my-zsh.sh
 
 #endregion ZSH default block
 ################################################################################
@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-source $HOME/.env_vars_profile
+source "$HOME"/.env_vars_profile
 
 #endregion Env Vars
 #===============================================================================
@@ -118,8 +118,11 @@ source $HOME/.env_vars_profile
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls="ls -aG"
-alias ll="ls -aGl"
+alias ls='ls -aG'
+alias ll='ls -aGl'
+alias cdsrc='cd "$SRC_DIR"'
+alias cd..='cd ..'
+alias cd~='cd ~'
 
 #endregion Aliases
 #===============================================================================
