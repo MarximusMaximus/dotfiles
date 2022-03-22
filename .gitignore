@@ -49,6 +49,12 @@ Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
 #endregion Windows
 #===============================================================================
 
@@ -164,6 +170,8 @@ __pycache__/
 
 DerivedData/
 
+xcuserdata/
+
 #endregion Xcode
 #===============================================================================
 
@@ -172,6 +180,11 @@ DerivedData/
 
 ################################################################################
 #region Misc
+
+# private data
+local.*
+*.local
+.netrc
 
 # backup files
 *.old
@@ -206,6 +219,19 @@ log[-_]*.txt
 *.ppk
 id_rsa
 *[-_]id_rsa
+*.key
+*.token
+symmetric_key
+asymmetric_key
+symmetric_token
+asymmetric_token
+*.kerberos
+*.keytab
+*.keyfile
+keytab
+keyfile
+tokenfile
+*.tokenfile
 
 #endregion Misc
 ################################################################################
