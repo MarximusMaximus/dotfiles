@@ -7,3 +7,6 @@ touch LICENSE
 git add LICENSE
 touch README.md
 git add README.md
+mkdir -p .vscode
+cp "$HOME"/.vscode-settings-base.json .vscode/settings.json
+git add .vscode/settings.json

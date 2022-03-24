@@ -91,6 +91,7 @@ MY_DIR=$(dirname -- "$(rreadlink "$0")")
   ln -sf "${MY_DIR}"/.vimrc .vimrc || exit 1
   ln -sf "${MY_DIR}"/.zshrc .zshrc || exit 1
   ln -sf "${MY_DIR}"/.gitignore .gitignore-base || exit 1
+  ln -sf "${MY_DIR}"/.vscode/settings.json .vscode-settings-base.json || exit 1
 
   # TODO: insert missing lines
   if [ ! -f .gitconfig ]; then
