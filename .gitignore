@@ -1,10 +1,4 @@
-################################################################################
-#region Project Specific
-
-
-
-#endregion Project Specific
-################################################################################
+# NOTE: Project specific overries are at end of file
 
 ################################################################################
 #region OSes
@@ -132,6 +126,16 @@ __pycache__/
 *.py[cod]
 #*$py.class
 
+# pytest cache
+.pytest_cache/
+
+# egg and build related
+*.egg-info/
+.eggs/
+
+# tox cache
+.tox
+
 #endregion Python
 #===============================================================================
 
@@ -181,7 +185,7 @@ xcuserdata/
 ################################################################################
 #region Misc
 
-# private data
+# ! private data
 local.*
 *.local
 .netrc
@@ -190,16 +194,30 @@ local.*
 *.old
 *.old.*
 
+# binary files
+*.zip
+*.tar.gz
+*.dmg
+*.img
+
+# build folders
+build/
+dist/
+
+# generic caches
+.cache
+cache/
+
+# coverage data
+.coverage
+htmlcov/
+coverage.json
+coverage.xml
+coverage.html
+
 # runtime files
 *.pid
 *.lock
-
-# temp files
-*~
-tmp/
-temp/
-*.tmp
-~$*
 
 # logs
 log
@@ -233,5 +251,20 @@ keyfile
 tokenfile
 *.tokenfile
 
+# temp files
+*~
+tmp/
+temp/
+*.tmp
+~$*
+
 #endregion Misc
+################################################################################
+
+################################################################################
+#region Project Specific
+
+
+
+#endregion Project Specific
 ################################################################################
