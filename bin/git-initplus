@@ -3,9 +3,9 @@
 git init .
 cp "$HOME"/.gitignore-base .gitignore
 git add .gitignore
-touch LICENSE
+cp "$HOME"/LICENSE-DEFAULT LICENSE || touch LICENSE
 git add LICENSE
-touch README.md
+cp "$HOME"/README_DEFAULT.md README.md || touch README.md
 git add README.md
 mkdir -p .vscode
 cp "$HOME"/.vscode-settings-base.json .vscode/settings.json
