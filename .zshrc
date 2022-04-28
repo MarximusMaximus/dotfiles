@@ -73,7 +73,10 @@ ZSH_THEME="macos-theme"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git-prompt)
+plugins=(
+    git-prompt
+    poetry
+)
 
 source "$ZSH"/oh-my-zsh.sh
 
@@ -92,14 +95,19 @@ source "$ZSH"/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+EDITOR='vim'
+export EDITOR
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+PLATFORM=$(uname)
+export PLATFORM
+REAL_PLATFORM=${REAL_PLATFORM:-${PLATFORM}}
+export REAL_PLATFORM
+
+REAL_USER=${REAL_USER:-$(who am i | awk '{print $1}')}
+export REAL_USER
 
 source "$HOME"/.env_vars_profile
 
@@ -123,8 +131,23 @@ alias ll='ls -aGl'
 alias cdsrc='cd "$SRC_DIR"'
 alias cd..='cd ..'
 alias cd~='cd ~'
+alias condacreate="conda create"
+if [ "${PLATFORM}" = "Darwin" ]; then
+    alias condacreate64="CONDA_SUBDIR=osx-64 conda create"
+    alias condacreateARM="CONDA_SUBDIR=osx-arm64 conda create"
+fi
 
 #endregion Aliases
+#===============================================================================
+
+#===============================================================================
+#region Path Injection
+
+export PATH="$SRC_DIR/dotfiles/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/conda/pythonbins:$PATH"
+
+#endregion Path Injection
 #===============================================================================
 
 #===============================================================================
@@ -145,19 +168,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-conda activate
+# activate 'placeholder' env so we don't accidentally install anything into base env
+conda activate placeholder
 
 #endregion conda
 #===============================================================================
-
-#===============================================================================
-#region Path Injection
-
-export PATH="$SRC_DIR/dotfiles/bin:$PATH"
-
-#endregion Path Injection
-#===============================================================================
-
 
 #endregion User configuration
 ################################################################################
